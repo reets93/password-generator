@@ -88,30 +88,58 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-// Function to prompt user for password options
+
+// // Function to prompt user for password options & Validate answers
 function getPasswordOptions() {
-// prompt for number of characters
-prompt("How many characters long would you like your password to be? /n It should be between 11 and 64 characters.")
-// alert for include: lower case
-alert("Would you like to use lower case characters? \n Ok for yes.")
-//alert for include: upper case
-alert("Would you like to use upper case characters? \n Ok for yes.")
-// alert for include: special characters
-alert("Would you like to use special characters? \n Ok for yes.")
-// alert for include: numbers
-alert("Would you like to use numeric characters? \n Ok for yes.")
+  // Password length + validation
+  var pwLength = prompt("How many characters would you like in your password?");
+  while (pwLength < 8 || pwLength > 65) {
+    pwLength = prompt("Your password needs between 11 & 65 characters. \n How many characters would you like in your password?");
+  }
+
+  // Character Types
+  var lcChar = confirm("Would you like to use lower case characters? \n Click OK for yes.");
+  var ucChar = confirm("Would you like to use upper case characters? \n Click OK for yes.");
+  var spChar = confirm("Would you like to use special characters? \n Click OK for yes.");
+  var numChar = confirm("Would you like to use numeric characters? \n Click OK for yes.");
+
+  // Character types validation
+  while (lcChar == false && ucChar == false && spChar == false && numChar == false) {
+    alert("You need to select at least one type of character for your password. Please try again.")
+    var lcChar = confirm("Would you like to use lower case characters? \n Click OK for yes.");
+    var ucChar = confirm("Would you like to use upper case characters? \n Click OK for yes.");
+    var spChar = confirm("Would you like to use special characters? \n Click OK for yes.");
+    var numChar = confirm("Would you like to use numeric characters? \n Click OK for yes.");
+  }
+
 }
 
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-// limit the randomised generator based on answers from prompts above. 
+  // limit the randomised generator based on answers from prompts above. 
+
+  if (lcChar == true) {
+    randomLC(Math.floor(Math.random() * lowerCasedCharacters));
+  }
+  if (ucChar == true) {
+    upperCasedCharacters;
+  }
+  if (spChar == true) {
+    specialCharacters;
+  }
+  if (numChar == true) {
+    numericCharacters;
+  }
 }
 
 // Function to generate password with user input
 function generatePassword() {
-getPasswordOptions()
-return "Here's your password."
+  getPasswordOptions()
+  console.log(pwLength + lcChar + ucChar + spChar + numChar)
+  console.log("Testing this works")
+
+  return "This is where the password goes"
 }
 
 
