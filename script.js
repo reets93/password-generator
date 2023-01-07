@@ -88,6 +88,7 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+var pwCriteria = []
 
 // // Function to prompt user for password options & Validate answers
 function getPasswordOptions() {
@@ -112,31 +113,33 @@ function getPasswordOptions() {
     var numChar = confirm("Would you like to use numeric characters? \n Click OK for yes.");
   }
 
-}
+  // push chosen arrays into a new object?
+  
+  if (lcChar == true) {
+    pwCriteria.push(lowerCasedCharacters);
+  }
+  if (ucChar == true) {
+    pwCriteria.push(upperCasedCharacters);
+  }
+  if (spChar == true) {
+    pwCriteria.push(specialCharacters);
+  }
+  if (numChar == true) {
+    pwCriteria.push(numericCharacters);
+  }
 
+  console.log(pwCriteria)
+}
 
 // Function for getting a random element from an array
 function getRandom(arr) {
   // limit the randomised generator based on answers from prompts above. 
 
-  if (lcChar == true) {
-    randomLC(Math.floor(Math.random() * lowerCasedCharacters));
-  }
-  if (ucChar == true) {
-    upperCasedCharacters;
-  }
-  if (spChar == true) {
-    specialCharacters;
-  }
-  if (numChar == true) {
-    numericCharacters;
-  }
 }
 
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions()
-  console.log(pwLength + lcChar + ucChar + spChar + numChar)
   console.log("Testing this works")
 
   return "This is where the password goes"
