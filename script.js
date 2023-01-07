@@ -89,11 +89,12 @@ var upperCasedCharacters = [
 ];
 
 var pwCriteria = []
+var pwLength;
 
 // // Function to prompt user for password options & Validate answers
 function getPasswordOptions() {
   // Password length + validation
-  var pwLength = prompt("How many characters would you like in your password?");
+  pwLength = prompt("How many characters would you like in your password?");
   while (pwLength < 8 || pwLength > 65) {
     pwLength = prompt("Your password needs between 11 & 65 characters. \n How many characters would you like in your password?");
   }
@@ -113,8 +114,7 @@ function getPasswordOptions() {
     var numChar = confirm("Would you like to use numeric characters? \n Click OK for yes.");
   }
 
-  // push chosen arrays into a new object?
-  
+  // push chosen arrays into a new array - pwCriteria
   if (lcChar == true) {
     pwCriteria.push(lowerCasedCharacters);
   }
@@ -131,18 +131,23 @@ function getPasswordOptions() {
   console.log(pwCriteria)
 }
 
++pwLength;
+var rndmPW = "";
+
 // Function for getting a random element from an array
 function getRandom(arr) {
-  // limit the randomised generator based on answers from prompts above. 
-
+  for (let i = 0; i <= +pwLength; i++) {
+    rndmPW = (Math.floor(Math.random() * pwCriteria[i]))
+  }
+  console.log(rndmPW)
 }
+
 
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions()
-  console.log("Testing this works")
-
-  return "This is where the password goes"
+  getRandom()
+  return rndmPW + " Here it is"
 }
 
 
