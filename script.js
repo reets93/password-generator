@@ -118,15 +118,19 @@ function getPasswordOptions() {
   
   if (lcChar == true) {
       pwCriteria.push(lowerCasedCharacters);
+      // lowerCasedCharacters.concat(pwArray);
   }
   if (ucChar == true) {
       pwCriteria.push(upperCasedCharacters);
+      // upperCasedCharacters.concat(pwArray);
   }
   if (spChar == true) {
       pwCriteria.push(specialCharacters);
+      // specialCharacters.concat(pwArray);
   }
   if (numChar == true) {
       pwCriteria.push(numericCharacters);
+      // specialCharacters.concat(pwArray);
   }
   console.log(pwCriteria)
 
@@ -136,33 +140,31 @@ function getPasswordOptions() {
 }
 
 +pwLength;
-var rndmPW = "qwertuiopafdsajfkldajklajkf";
+var rndmPW = "";
 
 // Function for getting a random element from an array
 function getRandom() {
+// how do i generate a random order of items from the "true" arrays that are in my pwCriteria? 
+// then I want to slice based on the pwlength
+// rndmPW = rndmPW.slice(0,pwlength)
+
+// OR: I wanted to do a for loop and access one random item from the pwCriteria object with each iteration to match the length of the password
   for (let i = 0; i <= +pwLength; i++) {
+    // rndmPW = Math.floor(Math.random()*pwCriteria);
+    // PW += pwCriteria(rndmPW, rndmPW +1);
     // rndmPW = Math.floor(Math.random() * pwCriteria)
     // rndmPW = pwCriteria[Math.floor(Math.random() * pwCriteria)]
   }
-
   console.log(rndmPW)
-
-  // for (let i = 0; i <= +pwLength; i++) {
-  //   rndmPW = Math.random().toString(36).toLowerCase() //need to splice first 2 characters. this at least works, but incorrect sources. & will always be the same character types given.
-  //   return rndmPW;
-  // }
-
 }
 
-// I want to have an array. generate a random order. then slice/splice based on pwlength. 
-// rndmPW = rndmPW.slice(0,pwlength)
 
 
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions()
   getRandom()
-  return rndmPW + "This is testing"
+  return "This is the password: " + rndmPW
 }
 
 
