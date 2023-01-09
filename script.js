@@ -88,15 +88,15 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-var pwCriteria = []
+var pwCriteria = [];
 var pwLength;
 
 // // Function to prompt user for password options & Validate answers
 function getPasswordOptions() {
   // Password length + validation
-  pwLength = prompt("How many characters would you like in your password?");
-  while (pwLength < 8 || pwLength > 65) {
-    pwLength = prompt("Your password needs between 11 & 65 characters. \n How many characters would you like in your password?");
+  pwLength = prompt("How many characters would you like in your password? \n It must be between 10 - 64 characters long.");
+  while (pwLength < 10 || pwLength > 64) {
+    pwLength = prompt("Your password needs between 10 & 64 characters. \n How many characters would you like in your password?");
   }
 
   // Character Types
@@ -115,43 +115,58 @@ function getPasswordOptions() {
   }
 
   // push chosen arrays into a new array - pwCriteria
+  
   if (lcChar == true) {
-    pwCriteria.push(lowerCasedCharacters);
+      pwCriteria.push(lowerCasedCharacters);
   }
   if (ucChar == true) {
-    pwCriteria.push(upperCasedCharacters);
+      pwCriteria.push(upperCasedCharacters);
   }
   if (spChar == true) {
-    pwCriteria.push(specialCharacters);
+      pwCriteria.push(specialCharacters);
   }
   if (numChar == true) {
-    pwCriteria.push(numericCharacters);
+      pwCriteria.push(numericCharacters);
   }
-
   console.log(pwCriteria)
+
+  // console.log(typeof pwCriteria)
+  // console.log(typeof pwLength)
+  // console.log(typeof +pwLength)
 }
 
 +pwLength;
-var rndmPW = "";
+var rndmPW = "qwertuiopafdsajfkldajklajkf";
 
 // Function for getting a random element from an array
-function getRandom(arr) {
+function getRandom() {
   for (let i = 0; i <= +pwLength; i++) {
-    rndmPW = (Math.floor(Math.random() * pwCriteria[i]))
+    // rndmPW = Math.floor(Math.random() * pwCriteria)
+    // rndmPW = pwCriteria[Math.floor(Math.random() * pwCriteria)]
   }
+
   console.log(rndmPW)
+
+  // for (let i = 0; i <= +pwLength; i++) {
+  //   rndmPW = Math.random().toString(36).toLowerCase() //need to splice first 2 characters. this at least works, but incorrect sources. & will always be the same character types given.
+  //   return rndmPW;
+  // }
+
 }
+
+// I want to have an array. generate a random order. then slice/splice based on pwlength. 
+// rndmPW = rndmPW.slice(0,pwlength)
 
 
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions()
   getRandom()
-  return rndmPW + " Here it is"
+  return rndmPW + "This is testing"
 }
 
 
-// DO NOT MAKE CHANGES TO BELOW:
+// -----------------------------------------------------
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
