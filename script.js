@@ -171,7 +171,7 @@ function generateRndmPw(arr) {
 function generatePassword() {
   getPasswordOptions()
   generateRndmPw(pwCriteria)
-  return "This is the password: " + thePW.join('')
+  return "Password: " + thePW.join('')
 }
 
 // -----------------------------------------------------
