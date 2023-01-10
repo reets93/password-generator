@@ -8,7 +8,7 @@ I used functions to get random elements from the different character types and t
 ## Usage
 Click on the 'Generate Password' button. Answer the questions to enter your password criteria. See the screen for your password.
 
-Deployed page: 
+Deployed page: https://reets93.github.io/password-generator/  
 
 ![alt text](./Screenshot%202023-01-10%20at%2015.11.16.png)
 ![alt text](./Screenshot%202023-01-10%20at%2015.11.25.png)
